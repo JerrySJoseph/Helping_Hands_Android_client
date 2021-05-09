@@ -1,0 +1,56 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.HelpingHands" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorDarkGreen</item>
+        <item name="colorPrimaryVariant">@color/colorLightGreen</item>
+        <item name="colorOnPrimary">@color/colorBg</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorLightGreen</item>
+        <item name="colorSecondaryVariant">@color/colorDarkGreen</item>
+        <item name="colorOnSecondary">@color/colorTextNormal</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <!-- ActionBar application theme. -->
+    <style name="Theme.HelpingHands.ActionBarActivity" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorDarkGreen</item>
+        <item name="colorPrimaryVariant">@color/colorLightGreen</item>
+        <item name="colorOnPrimary">@color/colorBg</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorLightGreen</item>
+        <item name="colorSecondaryVariant">@color/colorDarkGreen</item>
+        <item name="colorOnSecondary">@color/colorTextNormal</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <!--Heading Style -->
+    <style name="headingStyle">
+        <item name="android:textSize">17dp</item>
+        <item name="android:textColor">@color/colorTextNormal</item>
+    </style>
+    <!--Content Style -->
+    <style name="contentStyle">
+        <item name="android:textSize">14dp</item>
+    </style>
+    <style name="ExpandedAppBar" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="CollapsedAppBar" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">?colorOnPrimary</item>
+
+    </style>
+
+</resources>

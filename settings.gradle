@@ -1,0 +1,4 @@
+
+include ':HelpingHandsCloud'
+include ':app'
+rootProject.name = "Helping Hands"

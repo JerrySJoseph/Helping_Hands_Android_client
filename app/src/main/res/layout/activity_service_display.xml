@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.views.serviceDisplay.ServiceDisplayActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/actionbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:expandedTitleTextAppearance="@style/ExpandedAppBar"
+            app:collapsedTitleTextAppearance="@style/CollapsedAppBar"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_hero_placeholder"
+                />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_collapseMode="pin"
+                app:title="@null"
+                android:theme="@style/ToolbarTheme"/>
+
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainContainer"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/short_address"
+                    android:text="New Delhi, India"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/distance"
+                    android:text="24 km away"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_button_rounded_primary"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/colorBg"
+                    />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/ic_star"
+                    android:text="4.5"
+                    android:textSize="17dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/positiveVotes"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_vote"
+                    android:text="29K"
+                    android:textSize="17dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/negativeVotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/ic_thumb_down"
+                    android:text="4.5K"
+                    android:textSize="17dp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="2dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorDarkGreen"/>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/verified"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_verified"
+                    android:drawableTint="?colorPrimary"
+                    android:text="Verified"
+                    android:textStyle="bold"
+                    android:drawablePadding="5dp"/>
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_email"
+                    android:drawableTint="?colorPrimary"
+                    android:text="jerin.sebastian153@gmail.com"
+                    android:textStyle="bold"
+                    android:drawablePadding="5dp"/>
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawableTint="?colorPrimary"
+                    android:text="+91-7087375553"
+                    android:textStyle="bold"
+                    android:drawablePadding="5dp"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:text="About : "
+                android:paddingTop="5dp"
+                android:background="@color/colorLightGreen"
+                android:paddingLeft="5dp"
+                android:textColor="@color/colorTextNormal"
+                android:textSize="15dp"
+                android:paddingBottom="2dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:text="@string/desc"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:textSize="17dp"
+                android:paddingBottom="2dp"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:text="Deals In : "
+                android:paddingTop="5dp"
+                android:background="@color/colorLightGreen"
+                android:paddingLeft="5dp"
+                android:textSize="15dp"
+                android:textColor="@color/colorTextNormal"
+                android:paddingBottom="2dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/dealsIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:paddingLeft="5dp"
+
+                android:paddingTop="5dp"
+                android:paddingBottom="2dp"
+                android:text="Oxygen, Ambulance, Remedesvir, Something else, etc"
+                android:textSize="17dp" />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:text="Address : "
+                android:paddingTop="5dp"
+                android:background="@color/colorLightGreen"
+                android:paddingLeft="5dp"
+                android:textSize="15dp"
+                android:textColor="@color/colorTextNormal"
+                android:paddingBottom="2dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:text="80-C,Pocket-E, LIG Flats, GTB Enclave, Delhi-110093"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:textSize="17dp"
+                android:paddingBottom="2dp"
+                />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:text="Tags : "
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:textSize="15dp"
+                android:background="@color/colorLightGreen"
+                android:textColor="@color/colorTextNormal"
+                android:paddingBottom="2dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:text="#oxygen, #something, #me, etc"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:textSize="17dp"
+                />
+            <View
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorDarkGreen"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:onClick="onCallClick"
+                    android:id="@+id/callNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:text="CALL"
+                    android:drawableTint="?colorPrimary"
+                    android:textSize="17dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:onClick="onLikeToggle"
+                    android:id="@+id/likeNow"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_like_border"
+                    android:text="Like"
+                    android:textSize="17dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:onClick="onDislikeToggle"
+                    android:id="@+id/dislikeNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/ic_thumb_down_border"
+                    android:text="Dislike"
+                    android:textSize="17dp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:background="@color/colorBg"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+                <LinearLayout
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Developed by"
+                        android:textSize="10dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jerry S Joseph"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="v1.0.0"
+                        android:textSize="10dp"
+                        android:textStyle="bold"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

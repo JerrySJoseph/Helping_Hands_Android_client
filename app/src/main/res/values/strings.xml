@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Helping Hands</string>
+    <string name="tags_desc">Add relevant tags associated with the services or products this dealer is offering. Note that multiple tags should be seperated by coma( , ). For eg: #oxygen,#oxygenrefill,#vaccine</string>
+    <string name="desc">A small description about the company/individual briefly explaining about the products/services they are offering. This can help users to narrow down their search to reach you more easily </string>
+</resources>
