@@ -1,4 +1,4 @@
-# Helping Hands Client for android 📱:
+# Helping Hands Client for android 📱
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![Github versions](https://img.shields.io/github/v/release/jerrysjoseph/Helping_Hands_Android_client?include_prereleases)
@@ -42,7 +42,7 @@ This app was built in JAVA using MVVM Architecture pattern.
 - [ ] Filter services by location, date, rating, etc.
 
 
-## Contributing to this project 👦:
+## Contributing to this project 👦
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
 To contribute to this project, follow these steps:
 
