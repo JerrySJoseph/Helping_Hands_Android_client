@@ -1,4 +1,4 @@
-# Helping Hands Client for android :zap:
+# Helping Hands Client for android 📱:
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![Github versions](https://img.shields.io/github/v/release/jerrysjoseph/Helping_Hands_Android_client?include_prereleases)
@@ -7,6 +7,11 @@
 ![GitHub stars](https://img.shields.io/github/stars/jerrysjoseph/Helping_Hands_Android_client?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/jerrysjoseph/Helping_Hands_Android_client?style=social)
 
+## Screens
+<p align="center">
+  <img width="auto" height="auto" alt="parallel processing" src="helping-hands-app2.gif">
+</p>
+
 Helping Hands is an Open Source Android application built by Jerry S Joseph. This application serves as a fully functional prototype of the social service community app. 
 This app was built in JAVA using MVVM Architecture pattern.
 
@@ -14,25 +19,15 @@ This app was built in JAVA using MVVM Architecture pattern.
 * app -> The actual application
 * HelpinghandlsCloud -> Module for handling Network/cloud requests
 
-## Demo
-
-### Parallel Processing
-
-Tasks are processed simultaneously reducing the runtime.
-
-<p align="center">
-  <img width="auto" height="auto" alt="parallel processing" src="gifs/backgroundTaskManager2.gif">
-</p>
-
-
-### Serial Processing
-
-Tasks are processed one after other.
-
-<p align="center">
-  <img width="auto" height="auto" alt="serial processing" src="gifs/backgroundTaskManager3.gif">
-</p>
-
+## Features
+* No Login/Signup. Anyone can access the free database with this app.
+* Show all services near you with Geolocation.
+* Anyone can add a new service as a contact (within one's state).
+* The probability of finding a service depends on the distance, rating, and verification status of the service provider.
+* Tailored to include mobile numbers only from India for Now.
+* Search any service provider by name, services, phone number or tags.
+* Works even when there is no internet connection.
+* Ability to vote or downvote any service provider anonymously.
 
 ## Goals :fire:
 - [x] No Login/Signup.
@@ -47,7 +42,7 @@ Tasks are processed one after other.
 - [ ] Filter services by location, date, rating, etc.
 
 
-## Contributing to this project :boy:
+## Contributing to this project 👦:
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
 To contribute to this project, follow these steps:
 
@@ -68,7 +63,7 @@ Thanks to the following people who have contributed to this project:
 
 ## Contact :telephone:
 
-If you want to contact me you can reach me at <jerin.sebastian153@gmail.com>.
+Reach me at <jerin.sebastian153@gmail.com>.
 
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
