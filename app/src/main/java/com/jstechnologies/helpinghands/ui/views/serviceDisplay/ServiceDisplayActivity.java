@@ -1,11 +1,13 @@
 package com.jstechnologies.helpinghands.ui.views.serviceDisplay;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +23,7 @@ import com.jstechnologies.helpinghands.data.repository.service.ServiceRepository
 import com.jstechnologies.helpinghands.ui.views.base.BaseActivity;
 import com.jstechnologies.helpinghands.ui.views.dashBoard.DashBoardViewModel;
 import com.jstechnologies.helpinghands.ui.views.dashBoard.DashBoardViewModelFactory;
+import com.jstechnologies.helpinghands.utils.IntentUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,9 @@ import java.util.List;
 public class ServiceDisplayActivity extends BaseActivity<ServiceDisplayViewModel> {
 
     Toolbar toolbar;
-    TextView shortAddress,distance,rating,pVotes,nVotes,verified,email,phone,desc,dealsIn,address,tags;
+    TextView shortAddress,distance,rating,pVotes,nVotes,verified,email,phone,desc,dealsIn,address,tags,likeNow,dislikeNow;
+    int result=RESULT_CANCELED;
+    AlertDialog.Builder alert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,7 @@ public class ServiceDisplayActivity extends BaseActivity<ServiceDisplayViewModel
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         registerViewComponents();
+        alert=new AlertDialog.Builder(this);
     }
 
     @NonNull
@@ -75,7 +81,17 @@ public class ServiceDisplayActivity extends BaseActivity<ServiceDisplayViewModel
                populate(serviceModel);
            }
        });
+        viewmodel.getHasLiked().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean)
+                {
+                    likeNow.setVisibility(View.GONE);
+                    dislikeNow.setVisibility(View.GONE);
+                }
 
+            }
+        });
     }
 
     private void populate(ServiceModel dealer) {
@@ -112,23 +128,69 @@ public class ServiceDisplayActivity extends BaseActivity<ServiceDisplayViewModel
         dealsIn=findViewById(R.id.dealsIn);
         address=findViewById(R.id.address);
         tags=findViewById(R.id.tags);
+        likeNow=findViewById(R.id.likeNow);
+        dislikeNow=findViewById(R.id.dislikeNow);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==android.R.id.home)
+        {
+            setResult(result);
             finish();
+        }
 
         return super.onOptionsItemSelected(item);
     }
 
     public void onCallClick(View view) {
+        IntentUtils.startCallIntent(this,viewmodel.getServicesLiveData().getValue().getPhone());
     }
 
     public void onLikeToggle(View view) {
+        alert.setTitle("Are you sure?");
+        alert.setMessage("You are about to vote for this service. Please make sure you are voting for the correct service. You cannot retry this later");
+        alert.setCancelable(true);
+        alert.setPositiveButton("Like Me", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                viewmodel.toggleLike();
+                result=RESULT_OK;
+            }
+        });
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(result);
+        super.onBackPressed();
     }
 
     public void onDislikeToggle(View view) {
+        alert.setTitle("Are you sure?");
+        alert.setMessage("You are about to down vote for this service. Please make sure you are down voting for the correct service. You cannot retry this later");
+        alert.setCancelable(true);
+        alert.setPositiveButton("Dislike Me", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                viewmodel.toggleDislike();
+                result=RESULT_OK;
+            }
+        });
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
     }
 }

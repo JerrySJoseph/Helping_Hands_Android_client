@@ -3,6 +3,7 @@ package com.jstechnologies.helpinghands.data.api.likes;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class LocalLikesApi {
@@ -26,15 +27,24 @@ public class LocalLikesApi {
     }
     public boolean hasLiked(String id)
     {
-        Set<String>ids=preferences.getStringSet("likes_id_set",null);
-        return ids!=null?ids.contains(id):false;
+        Set<String>ids=preferences.getStringSet("likes_id_set",new HashSet<>());
+        Set<String>dids=preferences.getStringSet("dislikes_id_set",new HashSet<>());
+        return ids.contains(id) || dids.contains(id);
     }
 
     public void saveLiked(String id)
     {
-        Set<String>ids=preferences.getStringSet("likes_id_set",null);
+        Set<String>ids=preferences.getStringSet("likes_id_set",new HashSet<>());
         ids.add(id);
         editor.putStringSet("likes_id_set",ids);
+        editor.commit();
+    }
+
+    public void saveDisliked(String id)
+    {
+        Set<String>ids=preferences.getStringSet("dislikes_id_set",new HashSet<>());
+        ids.add(id);
+        editor.putStringSet("dislikes_id_set",ids);
         editor.commit();
     }
 }

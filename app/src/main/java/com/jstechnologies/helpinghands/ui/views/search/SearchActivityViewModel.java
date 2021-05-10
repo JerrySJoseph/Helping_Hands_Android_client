@@ -11,6 +11,7 @@ import com.jstechnologies.helpinghands.data.repository.service.ServiceRepository
 import java.util.List;
 
 public class SearchActivityViewModel extends ViewModel {
+
     ServiceRepository repository;
 
     private final MutableLiveData<List<ServiceModel>> servicesListLiveData;

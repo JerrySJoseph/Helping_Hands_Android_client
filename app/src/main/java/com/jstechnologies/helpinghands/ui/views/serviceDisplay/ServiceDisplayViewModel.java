@@ -9,7 +9,6 @@ import com.jstechnologies.helpinghands.data.repository.likes.LikesRepository;
 
 public class ServiceDisplayViewModel extends ViewModel {
 
-
     private final MutableLiveData<ServiceModel> servicesLiveData;
     private final MutableLiveData<String>messageLiveData;
     private final MutableLiveData<Boolean>isLoadingLiveData;
@@ -24,7 +23,9 @@ public class ServiceDisplayViewModel extends ViewModel {
         noDataLiveData=new MutableLiveData<>();
         hasLiked= new MutableLiveData<>();
         this.servicesLiveData.setValue(model);
+        boolean a=LikesRepository.getInstance().hasLiked(model.get_id());
         this.hasLiked.setValue(LikesRepository.getInstance().hasLiked(model.get_id()));
+
     }
 
     public LiveData<ServiceModel> getServicesLiveData() {
@@ -49,10 +50,40 @@ public class ServiceDisplayViewModel extends ViewModel {
 
     public void toggleLike()
     {
-        LikesRepository.getInstance().saveLiked(servicesLiveData.getValue().get_id());
+        LikesRepository.getInstance().saveLiked(servicesLiveData.getValue().get_id(), likeCallback);
     }
     public void toggleDislike()
     {
-
+        LikesRepository.getInstance().saveDisliked(servicesLiveData.getValue().get_id(), dislikeCallback);
     }
+
+    LikesRepository.LikeCallback likeCallback = new LikesRepository.LikeCallback() {
+        @Override
+        public void onSuccess() {
+            ServiceModel model=servicesLiveData.getValue();
+            model.getVotes().add(true);
+            servicesLiveData.setValue(model);
+            hasLiked.setValue(true);
+        }
+
+        @Override
+        public void onError(String reason) {
+            messageLiveData.setValue(reason);
+        }
+    };
+
+    LikesRepository.LikeCallback dislikeCallback = new LikesRepository.LikeCallback() {
+        @Override
+        public void onSuccess() {
+            ServiceModel model=servicesLiveData.getValue();
+            model.getVotes().add(false);
+            servicesLiveData.setValue(model);
+            hasLiked.setValue(true);
+        }
+
+        @Override
+        public void onError(String reason) {
+            messageLiveData.setValue(reason);
+        }
+    };
 }

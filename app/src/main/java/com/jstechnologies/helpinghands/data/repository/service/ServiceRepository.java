@@ -74,10 +74,7 @@ public class ServiceRepository {
         RemoteServiceApi.getInstance().saveServiceRemote(service,mApiCallback);
     }
 
-    public void getServiceForDisplay(String id)
-    {
 
-    }
     public interface ServiceCallback{
         void onSuccess(List<ServiceModel> models);
         void onFailure(String reason);

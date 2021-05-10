@@ -3,7 +3,9 @@ package com.jstechnologies.helpinghands.data.repository.likes;
 import android.content.Context;
 
 import com.jstechnologies.helpinghands.data.api.likes.LocalLikesApi;
+import com.jstechnologies.helpinghands.data.api.likes.RemoteLikesApi;
 import com.jstechnologies.helpinghands.ui.MyApp;
+import com.jstechnologies.helpinghands.utils.ApiCallback;
 
 public class LikesRepository {
 
@@ -27,8 +29,19 @@ public class LikesRepository {
         return LocalLikesApi.getInstance(mContext).hasLiked(id);
     }
 
-    public void saveLiked(String id)
+    public void saveLiked(String id,LikeCallback callback)
     {
         LocalLikesApi.getInstance(mContext).saveLiked(id);
+        RemoteLikesApi.saveLikeToCloud(id,callback);
+    }
+    public void saveDisliked(String id,LikeCallback callback)
+    {
+        LocalLikesApi.getInstance(mContext).saveDisliked(id);
+        RemoteLikesApi.saveDislikeToCloud(id,callback);
+    }
+
+    public interface LikeCallback{
+        void onSuccess();
+        void onError(String reason);
     }
 }

@@ -9,6 +9,7 @@
        android:orientation="vertical"
        android:layout_width="match_parent"
        android:layout_height="match_parent">
+
        <TextView
            android:layout_marginTop="10dp"
            android:layout_marginLeft="10dp"
@@ -16,6 +17,14 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="0 items founds"/>
+
+       <ProgressBar
+           android:layout_gravity="center"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:progressTint="@color/colorDarkGreen"
+           android:secondaryProgressTint="@color/colorDarkGreen"
+           android:id="@+id/progress_circular"/>
 
        <androidx.recyclerview.widget.RecyclerView
            android:layout_marginTop="10dp"

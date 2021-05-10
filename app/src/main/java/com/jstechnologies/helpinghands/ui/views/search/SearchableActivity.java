@@ -15,10 +15,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.gson.Gson;
 import com.jstechnologies.helpinghands.R;
 import com.jstechnologies.helpinghands.data.model.Address;
@@ -39,6 +41,7 @@ public class SearchableActivity extends BaseActivity<DashBoardViewModel> {
     ServiceAdapter serviceAdapter;
     TextView count;
     SearchView searchView;
+    ProgressBar progressIndicator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,7 @@ public class SearchableActivity extends BaseActivity<DashBoardViewModel> {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("All Services");
         dealersRecyclerView=findViewById(R.id.searchRecycler);
+        progressIndicator=findViewById(R.id.progress_circular);
         count=findViewById(R.id.count);
         serviceAdapter= new ServiceAdapter();
         dealersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -80,6 +84,8 @@ public class SearchableActivity extends BaseActivity<DashBoardViewModel> {
             public void onChanged(Boolean aBoolean) {
                 if(aBoolean)
                     serviceAdapter.setModels(new ArrayList<>());
+                progressIndicator.setVisibility(aBoolean?View.VISIBLE:View.GONE);
+
             }
         });
 

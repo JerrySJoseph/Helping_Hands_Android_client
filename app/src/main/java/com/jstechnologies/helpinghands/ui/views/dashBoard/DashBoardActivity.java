@@ -53,6 +53,7 @@ public class DashBoardActivity extends BaseActivity<DashBoardViewModel> {
     int h=0;
 
     private static int RC_ADD_SERVICE=101;
+    private static int RC_SERVICE_DISPLAY=102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,7 +136,7 @@ public class DashBoardActivity extends BaseActivity<DashBoardViewModel> {
         serviceAdapter.setOnItemClickListener(new ServiceAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(ServiceModel dealer, int index) {
-                startActivity(getSelectedIntentFor(dealer));
+                startActivityForResult(getSelectedIntentFor(dealer),RC_SERVICE_DISPLAY);
             }
         });
 
@@ -162,7 +163,7 @@ public class DashBoardActivity extends BaseActivity<DashBoardViewModel> {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==RC_ADD_SERVICE && resultCode==RESULT_OK)
+        if(resultCode==RESULT_OK)
             viewmodel.fetchData();
     }
 

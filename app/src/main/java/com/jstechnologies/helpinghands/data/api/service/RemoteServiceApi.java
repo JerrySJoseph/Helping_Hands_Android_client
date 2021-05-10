@@ -83,8 +83,8 @@ public class RemoteServiceApi {
     }
 
     private CloudRequestTask genReadTask(Address address) {
-        String url= URLs.getUrlFor("services", CloudRequest.RequestType.READ);
 
+        String url= URLs.getUrlFor("services", CloudRequest.RequestType.READ);
         CloudRequest request= new CloudRequest();
         request.setRequestType(CloudRequest.RequestType.READ);
         request.setCollectionName("services_data");

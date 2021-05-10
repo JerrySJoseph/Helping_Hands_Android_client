@@ -5,7 +5,10 @@ public class CloudRequest {
     public enum RequestType{
         READ,
         CREATE,
-        PING
+        LIKE,
+        DISLIKE,
+        REPORT,
+        COMMENT
     }
     RequestType requestType;
     Object payload;
